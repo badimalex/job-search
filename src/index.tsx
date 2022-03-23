@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import Companies from './pages/companies';
+import Resumes from './pages/resumes';
+import Vacancies from './pages/vacancies';
 import reportWebVitals from './reportWebVitals';
+import { store } from './init/store';
+import { Provider } from 'react-redux';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Vacancies />} />
+          <Route path="/resumes" element={<Resumes />} />
+          <Route path="invoices" element={<Companies />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
