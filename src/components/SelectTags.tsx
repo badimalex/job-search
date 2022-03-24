@@ -1,11 +1,11 @@
-import * as React from 'react';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import ListItemText from '@mui/material/ListItemText';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Checkbox from '@mui/material/Checkbox';
+import * as React from "react";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import ListItemText from "@mui/material/ListItemText";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Checkbox from "@mui/material/Checkbox";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -13,25 +13,28 @@ const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
+      width: 250
+    }
+  }
 };
 
-const names = ['react', 'php', 'typescript', 'redux', 'html', 'css'];
+const names = ["react", "php", "typescript", "redux", "html", "css"];
 
 type Props = {
-  selectedTags: string[],
-  onUpdateTags(param: string[]): void
+  selectedTags: string[];
+  onUpdateTags(param: string[]): void;
 };
 
-export default function MultipleSelectCheckmarks({selectedTags, onUpdateTags }: Props) {
+export default function MultipleSelectCheckmarks({
+  selectedTags,
+  onUpdateTags
+}: Props) {
   const handleChange = (event: SelectChangeEvent<typeof selectedTags>) => {
     const {
-      target: { value },
+      target: { value }
     } = event;
 
-    onUpdateTags(typeof value === 'string' ? value.split(',') : value);
+    onUpdateTags(typeof value === "string" ? value.split(",") : value);
   };
 
   return (
@@ -45,10 +48,10 @@ export default function MultipleSelectCheckmarks({selectedTags, onUpdateTags }: 
           value={selectedTags}
           onChange={handleChange}
           input={<OutlinedInput label="Tag" />}
-          renderValue={(selected) => selected.join(', ')}
+          renderValue={selected => selected.join(", ")}
           MenuProps={MenuProps}
         >
-          {names.map((name) => (
+          {names.map(name => (
             <MenuItem key={name} value={name}>
               <Checkbox checked={selectedTags.indexOf(name) > -1} />
               <ListItemText primary={name} />

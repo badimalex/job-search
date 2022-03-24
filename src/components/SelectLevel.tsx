@@ -1,17 +1,17 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { Level } from '../types/Resume';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { Level } from "../types/Resume";
 
 type Props = {
-  selectedLevel: keyof typeof Level | '',
-  onUpdateLevel(param: string): void
+  selectedLevel: keyof typeof Level | "";
+  onUpdateLevel(param: string): void;
 };
 
-export default function BasicSelect({selectedLevel, onUpdateLevel}: Props) {
+export default function BasicSelect({ selectedLevel, onUpdateLevel }: Props) {
   const handleChange = (event: SelectChangeEvent) => {
     onUpdateLevel(event.target.value as string);
   };

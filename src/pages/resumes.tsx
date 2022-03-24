@@ -1,9 +1,9 @@
-import MainLayout from '../layouts/main';
-import ResumeItem from '../components/ResumeItem';
-import SelectLevel from '../components/SelectLevel';
-import SelectTags from '../components/SelectTags';
-import ExperienceFilter from '../components/ExperienceFilter';
-import { useResumes } from '../init/useResumes';
+import MainLayout from "../layouts/main";
+import ResumeItem from "../components/ResumeItem";
+import SelectLevel from "../components/SelectLevel";
+import SelectTags from "../components/SelectTags";
+import ExperienceFilter from "../components/ExperienceFilter";
+import { useResumes } from "../init/useResumes";
 
 /*
   /resumes GET
@@ -25,17 +25,11 @@ export default function Expenses() {
 
   return (
     <MainLayout>
-      <SelectLevel
-        selectedLevel={search.level}
-        onUpdateLevel={onUpdateLevel}
-      />
-      <SelectTags
-        selectedTags={search.tags}
-        onUpdateTags={onUpdateTags}
-      />
+      <SelectLevel selectedLevel={search.level} onUpdateLevel={onUpdateLevel} />
+      <SelectTags selectedTags={search.tags} onUpdateTags={onUpdateTags} />
       <ExperienceFilter />
 
-      {list.map((resume) => (
+      {list.map(resume => (
         <ResumeItem key={resume.id} {...resume} />
       ))}
     </MainLayout>

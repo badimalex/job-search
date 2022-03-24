@@ -1,13 +1,13 @@
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
-import React from 'react';
-import styled from 'styled-components';
-import JobItem from '../components/JobItem';
-import SearchInput from '../components/SearchInput';
-import SortSearch from '../components/SortSearch';
-import { useJobs } from '../init/useJobs';
-import MainLayout from '../layouts/main';
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
+import React from "react";
+import styled from "styled-components";
+import JobItem from "../components/JobItem";
+import SearchInput from "../components/SearchInput";
+import SortSearch from "../components/SortSearch";
+import { useJobs } from "../init/useJobs";
+import MainLayout from "../layouts/main";
 
 const Container = styled.div`
   padding: 0 12px;
@@ -54,35 +54,35 @@ function App() {
 
   return (
     <MainLayout>
-    <Content>
-      <Main>
-        <SearchPanel>
-          <SearchInput />
-          <SortSearch />
-        </SearchPanel>
+      <Content>
+        <Main>
+          <SearchPanel>
+            <SearchInput />
+            <SortSearch />
+          </SearchPanel>
 
-        {list.map((job) => (
-          <JobItem
-            key={job.id}
-            title={job.title}
-            salary={job.salary}
-            company={job.company}
-          />
-        ))}
-      </Main>
-      <Sidebar>
-        <FormGroup>
-          <FormControlLabel control={<Checkbox />} label="Frontend" />
-          <FormControlLabel control={<Checkbox />} label="Backend" />
-          <FormControlLabel control={<Checkbox />} label="Applications" />
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Software development"
-          />
-          <FormControlLabel control={<Checkbox />} label="Testing" />
-          <FormControlLabel control={<Checkbox />} label="Administration" />
-        </FormGroup>
-      </Sidebar>
+          {list.map(job => (
+            <JobItem
+              key={job.id}
+              title={job.title}
+              salary={job.salary}
+              company={job.company}
+            />
+          ))}
+        </Main>
+        <Sidebar>
+          <FormGroup>
+            <FormControlLabel control={<Checkbox />} label="Frontend" />
+            <FormControlLabel control={<Checkbox />} label="Backend" />
+            <FormControlLabel control={<Checkbox />} label="Applications" />
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Software development"
+            />
+            <FormControlLabel control={<Checkbox />} label="Testing" />
+            <FormControlLabel control={<Checkbox />} label="Administration" />
+          </FormGroup>
+        </Sidebar>
       </Content>
     </MainLayout>
   );

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const Container = styled.div`
   padding: 0 12px;
@@ -21,16 +21,13 @@ const ProfileLink = styled.a`
   margin-left: auto;
 `;
 
-
-const Footer = styled.footer`
-
-`;
+const Footer = styled.footer``;
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
-function MainLayout({children}: Props) {
+function MainLayout({ children }: Props) {
   return (
     <>
       <Container>
@@ -46,9 +43,7 @@ function MainLayout({children}: Props) {
         {children}
         <Footer>
           <hr />
-          <p>
-            copyright
-          </p>
+          <p>copyright</p>
         </Footer>
       </Container>
     </>
