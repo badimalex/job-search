@@ -17,7 +17,7 @@ export const useJobs = (): JobState => {
 
   React.useEffect(() => {
     getJobs().then(res => {
-      dispatch(setJobs(res.data));
+      dispatch(setJobs(res.data.list));
     });
   }, [dispatch]);
 

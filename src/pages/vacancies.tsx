@@ -8,6 +8,7 @@ import SearchInput from "../components/SearchInput";
 import SortSearch from "../components/SortSearch";
 import { useJobs } from "../init/useJobs";
 import MainLayout from "../layouts/main";
+import CompanyRating from './charts';
 
 const Container = styled.div`
   padding: 0 12px;
@@ -52,6 +53,13 @@ const Sidebar = styled.div`
 function App() {
   const { list } = useJobs();
 
+  const ratings = list.map((job => {
+    return {
+      title: job.title,
+      value: Number(job.rating)
+    }
+  }))
+
   return (
     <MainLayout>
       <Content>
@@ -71,6 +79,7 @@ function App() {
           ))}
         </Main>
         <Sidebar>
+          <CompanyRating data={ratings} />
           <FormGroup>
             <FormControlLabel control={<Checkbox />} label="Frontend" />
             <FormControlLabel control={<Checkbox />} label="Backend" />

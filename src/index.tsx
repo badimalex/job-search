@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
-import Companies from "./pages/companies";
+import Charts from "./pages/charts";
 import Resumes from "./pages/resumes";
 import Vacancies from "./pages/vacancies";
 import reportWebVitals from "./reportWebVitals";
@@ -16,7 +16,7 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<Vacancies />} />
           <Route path="/resumes" element={<Resumes />} />
-          <Route path="invoices" element={<Companies />} />
+          <Route path="/charts" element={<Charts  data={[]} />} />
         </Routes>
       </BrowserRouter>
     </Provider>

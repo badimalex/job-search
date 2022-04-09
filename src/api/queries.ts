@@ -16,7 +16,7 @@ import { FilterType } from "../init/useResumes";
   }
 */
 
-export const getJobs = (): AxiosPromise<Job[]> => axios.get("/");
+export const getJobs = (): AxiosPromise<{list: Job[]}> => axios.get("/jobs");
 
 export const getResumes = (
   queryParams: FilterType = { level: "", tags: [] }
