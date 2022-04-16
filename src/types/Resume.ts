@@ -1,7 +1,7 @@
 export enum Level {
-  Junior = "Junior",
-  Middle = "Middle",
-  Senior = "Senior"
+  Junior = 'Junior',
+  Middle = 'Middle',
+  Senior = 'Senior',
 }
 
 export default interface Resume {
@@ -11,3 +11,9 @@ export default interface Resume {
   level: keyof typeof Level;
   tags: string[];
 }
+
+export type FilterType = {
+  experience?: number;
+  level: keyof typeof Level | '';
+  tags: string[];
+};

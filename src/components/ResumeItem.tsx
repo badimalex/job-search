@@ -1,14 +1,15 @@
-import React, { FC } from "react";
-import Resume, { Level } from "../types/Resume";
+import React, { FC } from 'react';
+import Resume, { Level } from '../types/Resume';
 
 type LevelProps = {
   level: keyof typeof Level;
 };
 
+// eslint-disable-next-line react/function-component-definition
 const LevelDisplay: FC<LevelProps> = ({ level }) => {
   switch (level) {
     case Level.Senior:
-      return <p>I'm senior 🦍</p>;
+      return <p>Im senior 🦍</p>;
 
     case Level.Middle:
       return <p>Middle man 🦊</p>;
@@ -20,15 +21,21 @@ const LevelDisplay: FC<LevelProps> = ({ level }) => {
 
 enum CardTypes {
   mastercard,
-  visa
+  visa,
 }
 
 const cashType = CardTypes.mastercard;
 
-const MasterCardIco = () => <span>💳</span>;
-const VisaCardIco = () => <span>💵</span>;
+function MasterCardIco() {
+  return <span>💳</span>;
+}
+function VisaCardIco() {
+  return <span>💵</span>;
+}
 
-const JobItem: FC<Resume> = ({ name, level, tags, experience }) => {
+function JobItem({
+  name, level, tags, experience
+}: Resume) {
   return (
     <div>
       <p>{name}</p>
@@ -37,9 +44,11 @@ const JobItem: FC<Resume> = ({ name, level, tags, experience }) => {
       {cashType === CardTypes.mastercard ? <MasterCardIco /> : <VisaCardIco />}
 
       <p>
-        {tags.map(tag => (
+        {tags.map((tag) => (
           <React.Fragment key={tag}>
-            <span>{tag}</span>,{" "}
+            <span>{tag}</span>
+            ,
+            {' '}
           </React.Fragment>
         ))}
       </p>
@@ -47,6 +56,6 @@ const JobItem: FC<Resume> = ({ name, level, tags, experience }) => {
       <input disabled value={experience} />
     </div>
   );
-};
+}
 
 export default JobItem;

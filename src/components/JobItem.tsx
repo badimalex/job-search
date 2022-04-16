@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 interface Props {
   title: string;
@@ -6,14 +6,16 @@ interface Props {
   salary: number;
 }
 
-const JobItem: FC<Props> = ({ title, company, salary }) => {
-  return (
-    <div>
-      <h1>{title}</h1>
-      <span>from {salary} rubles</span>
-      <p>{company}</p>
-    </div>
-  );
-};
+const JobItem: FC<Props> = ({ title, company, salary }) => (
+  <div> <h1>{title}</h1>
+    <span>
+      from
+      {salary}
+      {' '}
+      rubles
+    </span>
+    <p>{company}</p>
+  </div>
+);
 
 export default JobItem;

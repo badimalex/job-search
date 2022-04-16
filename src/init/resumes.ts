@@ -1,8 +1,8 @@
-import Resume from "../types/Resume";
+import Resume from '../types/Resume';
 
-export const SET_RESUME = "SET_RESUME";
+export const SET_RESUME = 'SET_RESUME';
 
-export type setResumesAction = {
+export type SetResumesAction = {
   type: typeof SET_RESUME;
   payload: Resume[];
 };
@@ -12,10 +12,10 @@ interface State {
 }
 
 const initialState = {
-  list: []
+  list: [],
 };
 
-type Action = setResumesAction;
+type Action = SetResumesAction;
 
 export type ResumeState = {
   list: Resume[];
@@ -24,15 +24,16 @@ export type ResumeState = {
 export function setResumes(payload: Resume[]): Action {
   return {
     type: SET_RESUME,
-    payload
+    payload,
   };
 }
 
+// eslint-disable-next-line @typescript-eslint/default-param-last
 export const resumes = (state: State = initialState, action: Action): State => {
   switch (action.type) {
     case SET_RESUME: {
       return {
-        list: action.payload
+        list: action.payload,
       };
     }
     default:

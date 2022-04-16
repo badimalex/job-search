@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Container = styled.div`
   padding: 0 12px;
@@ -29,24 +29,22 @@ type Props = {
 
 function MainLayout({ children }: Props) {
   return (
-    <>
-      <Container>
-        <Header>
-          <Link to="/">Jobs</Link>
-          <Link to="/resumes">Specialist</Link>
-          <Link to="/companies">Companies</Link>
-          <Link to="/salaries">Salaries</Link>
+    <Container>
+      <Header>
+        <Link to="/">Jobs</Link>
+        <Link to="/resumes">Specialist</Link>
+        <Link to="/companies">Companies</Link>
+        <Link to="/salaries">Salaries</Link>
 
-          <ProfileLink href="#">Profile</ProfileLink>
-        </Header>
+        <ProfileLink href="#">Profile</ProfileLink>
+      </Header>
 
-        {children}
-        <Footer>
-          <hr />
-          <p>copyright</p>
-        </Footer>
-      </Container>
-    </>
+      {children}
+      <Footer>
+        <hr />
+        <p>copyright</p>
+      </Footer>
+    </Container>
   );
 }
 
