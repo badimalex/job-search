@@ -1,12 +1,8 @@
 import React from 'react';
-import {
-  PieChart, Pie, Cell
-} from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 
 export default function Invoices() {
-  const [vacancies] = React.useState<
-  { name: string; value: number }[]
-  >([
+  const [vacancies] = React.useState<{ name: string; value: number }[]>([
     { name: 'National Government Supervisor', value: 17.96 },
     { name: 'International Government Director', value: 76.72 },
     { name: 'Internal Design Representative', value: 41.69 },

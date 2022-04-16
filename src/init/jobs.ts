@@ -2,7 +2,7 @@ import Job from '../types/Job';
 
 export const SET_JOBS = 'SET_JOBS';
 
-export type setJobsAction = {
+export type SetJobsAction = {
   type: typeof SET_JOBS;
   payload: Job[];
 };
@@ -15,7 +15,7 @@ const initialState = {
   list: [],
 };
 
-type Action = setJobsAction;
+type Action = SetJobsAction;
 
 export type JobState = {
   list: Job[];
@@ -28,6 +28,7 @@ export function setJobs(payload: Job[]): Action {
   };
 }
 
+// eslint-disable-next-line @typescript-eslint/default-param-last
 export const jobs = (state: State = initialState, action: Action): State => {
   switch (action.type) {
     case SET_JOBS: {

@@ -6,8 +6,11 @@ interface Props {
   salary: number;
 }
 
+// eslint-disable-next-line react/function-component-definition
 const JobItem: FC<Props> = ({ title, company, salary }) => (
-  <div> <h1>{title}</h1>
+  <div>
+    {' '}
+    <h1>{title}</h1>
     <span>
       from
       {salary}

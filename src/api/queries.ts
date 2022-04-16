@@ -20,5 +20,5 @@ export const getJobs = (): AxiosPromise<{ list: Job[] }> => axios.get('/jobs');
 export const getResumes = (
   queryParams: FilterType = { level: '', tags: [] }
 ): AxiosPromise<Resume[]> => axios.get('/resumes', {
-  params: queryParams
+  params: queryParams,
 });

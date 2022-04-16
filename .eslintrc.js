@@ -27,7 +27,7 @@ module.exports = {
     semi: 0,
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': 'off',
-    "import/prefer-default-export": "off",
+    'import/prefer-default-export': 'off',
     'react/jsx-filename-extension': [
       1,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
