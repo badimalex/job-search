@@ -1,47 +1,8 @@
 import React from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 
-const data01 = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-];
-
-/*
-  [
-    {
-      title: 'Middle React developer',
-      rating: 6
-    },
-    {
-      title: 'Middle Php developer',
-      rating: 9
-    },
-    {
-      title: 'Senior React developer',
-      rating: 3
-    },
-    {
-      title: 'fullstack React developer',
-      rating: 5
-    },
-  ]
-
-*/
-
-type Rating = {
-  title: string;
-  value: number;
-};
-
-type Props = {
-  data: Rating[];
-};
-
-export default function Invoices({ data }: Props) {
-
-  const [vacancies, setVacancies] = React.useState<{name: string, value: number}[]>([
+export default function Invoices() {
+  const [vacancies] = React.useState<{ name: string; value: number }[]>([
     { name: 'National Government Supervisor', value: 17.96 },
     { name: 'International Government Director', value: 76.72 },
     { name: 'Internal Design Representative', value: 41.69 },
@@ -50,16 +11,6 @@ export default function Invoices({ data }: Props) {
   ]);
 
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const chartRef = React.useRef(null);
-  const salaryRef = React.useRef(null);
-  //   columns: [
-  //     ['data1', 30],
-  //     ['data2', 120],
-  // ],
-  const columns = data.map((rating) => {
-    return [rating.title, rating.value];
-  });
-  let chart;
 
   React.useEffect(() => {
     // chart = c3.generate({
@@ -107,38 +58,27 @@ export default function Invoices({ data }: Props) {
     <>
       <PieChart width={400} height={400}>
         <Pie
-
-        activeIndex={activeIndex}
-        onMouseEnter={(_, index) => {
-          setActiveIndex(index);
-        }} data={vacancies} dataKey="value" fill="#8884d8">
-          {vacancies.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
+          activeIndex={activeIndex}
+          onMouseEnter={(_, index) => {
+            setActiveIndex(index);
+          }}
+          data={vacancies}
+          dataKey="value"
+          fill="#8884d8"
+        >
+          {vacancies.map((entry, index) => {
+            const key = `cell-${index}`;
+            return <Cell key={key} fill={COLORS[index % COLORS.length]} />;
+          })}
         </Pie>
       </PieChart>
 
       <ul>
         {vacancies.map((vacancy) => (
           <li key={vacancy.name}>
-            {vacancy.name}: {vacancy.value}
-            <button
-              onClick={() => {
-                const newList = vacancies.map((obj) => {
-                  if (obj.name == vacancy.name) {
-                    return {
-                      name: obj.name,
-                      value: obj.value + 10
-                    }
-                  }
-                  return obj;
-                });
-                setVacancies(newList);
-              }}
-            >
-              +
-            </button>
-            <button>-</button>
+            {vacancy.name}
+            :
+            {vacancy.value}
           </li>
         ))}
         :

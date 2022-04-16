@@ -1,8 +1,7 @@
-import axios from "./axios";
-import Job from "../types/Job";
-import { AxiosPromise } from "axios";
-import Resume from "../types/Resume";
-import { FilterType } from "../init/useResumes";
+import { AxiosPromise } from 'axios';
+import axios from './axios';
+import Job from '../types/Job';
+import Resume, { FilterType } from '../types/Resume';
 
 /*
   /
@@ -16,11 +15,10 @@ import { FilterType } from "../init/useResumes";
   }
 */
 
-export const getJobs = (): AxiosPromise<{list: Job[]}> => axios.get("/jobs");
+export const getJobs = (): AxiosPromise<{ list: Job[] }> => axios.get('/jobs');
 
 export const getResumes = (
-  queryParams: FilterType = { level: "", tags: [] }
-): AxiosPromise<Resume[]> =>
-  axios.get("/resumes", {
-    params: queryParams
-  });
+  queryParams: FilterType = { level: '', tags: [] }
+): AxiosPromise<Resume[]> => axios.get('/resumes', {
+  params: queryParams,
+});

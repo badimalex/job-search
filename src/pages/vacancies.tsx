@@ -1,33 +1,14 @@
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormGroup from "@mui/material/FormGroup";
-import React from "react";
-import styled from "styled-components";
-import JobItem from "../components/JobItem";
-import SearchInput from "../components/SearchInput";
-import SortSearch from "../components/SortSearch";
-import { useJobs } from "../init/useJobs";
-import MainLayout from "../layouts/main";
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import React from 'react';
+import styled from 'styled-components';
+import JobItem from '../components/JobItem';
+import SearchInput from '../components/SearchInput';
+import SortSearch from '../components/SortSearch';
+import { useJobs } from '../init/useJobs';
+import MainLayout from '../layouts/main';
 import CompanyRating from './charts';
-
-const Container = styled.div`
-  padding: 0 12px;
-  margin: 0 auto;
-  max-width: 1100px;
-`;
-
-const Header = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-
-  a {
-    padding: 0 15px;
-  }
-`;
-
-const ProfileLink = styled.a`
-  margin-left: auto;
-`;
 
 const SearchPanel = styled.div`
   display: flex;
@@ -53,12 +34,10 @@ const Sidebar = styled.div`
 function App() {
   const { list } = useJobs();
 
-  const ratings = list.map((job => {
-    return {
-      title: job.title,
-      value: Number(job.rating)
-    }
-  }))
+  const ratings = list.map((job) => ({
+    title: job.title,
+    value: Number(job.rating),
+  }));
 
   return (
     <MainLayout>
@@ -69,7 +48,7 @@ function App() {
             <SortSearch />
           </SearchPanel>
 
-          {list.map(job => (
+          {list.map((job) => (
             <JobItem
               key={job.id}
               title={job.title}

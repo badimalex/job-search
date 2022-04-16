@@ -1,9 +1,11 @@
-import MainLayout from "../layouts/main";
-import ResumeItem from "../components/ResumeItem";
-import SelectLevel from "../components/SelectLevel";
-import SelectTags from "../components/SelectTags";
-import ExperienceFilter from "../components/ExperienceFilter";
-import { useResumes } from "../init/useResumes";
+import React from 'react';
+
+import MainLayout from '../layouts/main';
+import ResumeItem from '../components/ResumeItem';
+import SelectLevel from '../components/SelectLevel';
+import SelectTags from '../components/SelectTags';
+import ExperienceFilter from '../components/ExperienceFilter';
+import { useResumes } from '../init/useResumes';
 
 /*
   /resumes GET
@@ -21,7 +23,9 @@ import { useResumes } from "../init/useResumes";
 */
 
 export default function Expenses() {
-  const { list, search, onUpdateLevel, onUpdateTags } = useResumes();
+  const {
+    list, search, onUpdateLevel, onUpdateTags
+  } = useResumes();
 
   return (
     <MainLayout>
@@ -29,7 +33,8 @@ export default function Expenses() {
       <SelectTags selectedTags={search.tags} onUpdateTags={onUpdateTags} />
       <ExperienceFilter />
 
-      {list.map(resume => (
+      {list.map((resume) => (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <ResumeItem key={resume.id} {...resume} />
       ))}
     </MainLayout>
